@@ -1,3 +1,6 @@
+## TODO
+1. Add example JUnit test running test repeatedly as described here: http://stackoverflow.com/questions/1492856/easy-way-of-running-the-same-junit-test-over-and-over
+
 ## Synopsis
 
 This project is a set of classes and tests put together to understand the Java language.
