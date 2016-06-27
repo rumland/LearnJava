@@ -1,5 +1,6 @@
 ## TODO
 1. Add example JUnit test running test repeatedly as described here: http://stackoverflow.com/questions/1492856/easy-way-of-running-the-same-junit-test-over-and-over
+2. Add "documentation" section talking about how to debug a maven build. Here is a link that already starts to do this: http://blog.pernix-solutions.com/pcastro/2012/08/02/debugging-maven-apps-in-netbeans/ 
 
 ## Synopsis
 
