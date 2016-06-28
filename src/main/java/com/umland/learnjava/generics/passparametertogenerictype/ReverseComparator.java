@@ -1,12 +1,12 @@
 
-package com.umland.learnjava.generics;
+package com.umland.learnjava.generics.passparametertogenerictype;
 
 import java.util.Comparator;
 
-public class PassingParameterToGenericType<T> implements Comparator<T> {
+public class ReverseComparator<T> implements Comparator<T> {
 	private final Comparator<T> delegateComparator;
 
-	public PassingParameterToGenericType(final Comparator<T> delegateComparator) {
+	public ReverseComparator(final Comparator<T> delegateComparator) {
 		this.delegateComparator = delegateComparator;
 	}
 

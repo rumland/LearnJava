@@ -1,26 +1,17 @@
 package com.umland;
 
-import com.umland.learnjava.generics.GenericClassRunner;
-import com.umland.learnjava.generics.PersonMain;
+import com.umland.learnjava.generics.GenericsMain;
 
 /**
  * Use this project to learn about things not really pertaining to code exactly.
- * For example git, maven and jenkins.
+ * For example git, Mayen and Jenkins.
  */
 public class Main {
-	/**
-	 * Classic beginners program
-	 *
-	 * @param args N/A
-	 */
 	public static void main(String[] args) {
 		System.out.println(CreateMessage());
 
-		GenericClassRunner cbm = new GenericClassRunner();
-		cbm.doIt();
-
-		PersonMain pm = new PersonMain();
-		pm.doIt();
+		GenericsMain genericsMain = new GenericsMain();
+		genericsMain.doIt();
 	}
 
 	/**
