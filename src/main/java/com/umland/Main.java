@@ -4,7 +4,7 @@ import com.umland.learnjava.generics.GenericsMain;
 
 /**
  * Use this project to learn about things not really pertaining to code exactly.
- * For example git, Mayen and Jenkins.
+ * For example git, Maven and Jenkins.
  */
 public class Main {
 	public static void main(String[] args) {
