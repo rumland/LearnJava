@@ -1,8 +1,8 @@
-package com.umland.learnjava.generics;
+package com.umland.learnjava.generics.implementgenerictype;
 
 import java.util.Comparator;
 
-public class ImplementGenericType implements Comparator<Person>{
+public class AgeComparator implements Comparator<Person>{
 
 	@Override
 	public int compare(Person o1, Person o2) {

@@ -1,11 +1,11 @@
 package com.umland.learnjava.generics;
 
-import com.umland.learnjava.generics.GenericClassCircularBuffer;
+import com.umland.learnjava.generics.clazz.CircularBuffer;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class GenericClassCircularBufferTest {
-	private GenericClassCircularBuffer buffer = new GenericClassCircularBuffer(2);
+	private CircularBuffer buffer = new CircularBuffer(2);
 	
 	@Test
 	public void testShouldOfferPollableElement() {

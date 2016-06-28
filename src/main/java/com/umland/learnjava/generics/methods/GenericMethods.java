@@ -1,5 +1,4 @@
-
-package com.umland.learnjava.generics;
+package com.umland.learnjava.generics.methods;
 
 import java.util.Comparator;
 import java.util.List;
