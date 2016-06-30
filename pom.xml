@@ -4,7 +4,7 @@
 
     <!-- 1. project information -->
     <groupId>com.umland</groupId>
-    <artifactId>HelloWorld</artifactId>
+    <artifactId>LearnJava</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
             <groupId>junit</groupId> <!-- required for each dependency -->
             <artifactId>junit</artifactId> <!-- required for each dependency -->
             <version>4.11</version> <!-- required for each dependency -->
-            <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -78,5 +78,5 @@
     </build>
 
     <!--4. repositories: where we want to pull artifacts from -->
-
+    <name>LearnJava</name>
 </project>
