@@ -1,10 +1,12 @@
 package com.umland.learnjava.generics.implementgenerictype;
 
-public class Person implements Comparable<Person> {
-	private final String name;
-	private final Integer age;
+import java.io.Serializable;
 
-	public Person(String name, Integer age) {
+public class Person implements Comparable<Person>, Serializable {
+	private final String name;
+	private final int age;
+
+	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
@@ -25,5 +27,18 @@ public class Person implements Comparable<Person> {
 	@Override
 	public int compareTo(Person o) {
 		return this.getAge().compareTo(o.getAge());
+	}
+
+    @Override
+	public boolean equals(Object other) {
+        boolean result = false;
+        if (other == null || (getClass() != other.getClass())) {
+            result = false;
+        } else {
+            Person otherPerson = (Person) other;
+            result = this.getAge().equals(otherPerson.getAge()) && this.getName().equals(otherPerson.getName());
+        }
+
+        return result;
 	}
 }

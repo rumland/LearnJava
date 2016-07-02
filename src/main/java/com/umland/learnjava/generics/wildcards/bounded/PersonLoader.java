@@ -1,25 +1,57 @@
 package com.umland.learnjava.generics.wildcards.bounded;
 
 import com.umland.learnjava.generics.implementgenerictype.Person;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+
+import java.io.*;
+import java.util.List;
 
 public class PersonLoader {
-	private final RandomAccessFile file;
+	private final File file;
+    private ObjectInputStream ois;
+    private FileInputStream fis;
 
-	public PersonLoader(final File file) throws FileNotFoundException {
-		this.file = new RandomAccessFile(file, "rw");
-	}
+	public PersonLoader(final File file) {
+        this.file = file;
+    }
 
-	public Person load() throws IOException {
-		String line = file.readLine();
-		String[] parts = line.split(",");
+    public void open() throws IOException {
+        fis = new FileInputStream(file);
+        ois = new ObjectInputStream(fis);
+    }
 
-		String name = parts[0];
-		Integer age = Integer.parseInt(parts[1]);
+    public void close() {
+        try {
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-		return new Person(name, age);
-	}
+	public Person load() {
+        Person person = null;
+        try {
+            person = (Person) ois.readObject();
+        } catch (EOFException e) {
+            //Do nothing
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+
+        return person;
+    }
+
+    public void loadAll(List<? super Person> persons) throws IOException {
+        Person person = null;
+        do {
+            person = load();
+            if (person != null) {
+                persons.add(person);
+            }
+        } while (person != null);
+    }
 }
