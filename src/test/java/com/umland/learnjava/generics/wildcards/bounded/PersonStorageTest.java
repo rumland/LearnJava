@@ -18,7 +18,12 @@ TODO ru: Hopefully one day I understand the language enough to remove the loader
 */
 
 /**
- * This test class shows generic subtyping.
+ * Wildcards are not a single feature, rather they are a name given to a collection of different capabilities.
+ * <ol>
+ *     <li>upper bounded: List&lt;? extends classname&gt;
+ *     <li>lower bounded: List&lt;? super classname&gt;
+ *     <li>unbounded    : List&lt;?&gt;
+ * </ol>
  */
 public class PersonStorageTest {
 	@Rule
@@ -183,8 +188,25 @@ public class PersonStorageTest {
     }
 
     /**
-     * ? super Klass --> get type of calls (loadAll) : contravariant
-     * ? extends Klass --> put type of calls (saveAll) : covariant
+     * ? super Class --> put/write/consume type of calls (loadAll) : contravariant (declare lower bound for type parameter)
+     * ? extends Class --> get/read/produce type of calls (saveAll) : covariant (declare upper bound for type parameter)
+     * <p>
+     *     A good description can be found here:
+     *     {@LINK http://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java}
+     *     PECS
+     *     Remember PECS: "Producer Extends, Consumer Super".
+     *     <ul>
+     *         <li>"Producer Extends" - If you need a List to produce T values (you want to read Ts from the list),
+     *                                  you need to declare it with ? extends T, e.g. List&lt;? extends Integer&gt;. But
+     *                                  you cannot add to this list.
+     *         <li>"Consumer Super" - If you need a List to consume T values (you want to write Ts into the list),
+     *                                  you need to declare it with ? super T, e.g. List&lt;? super Integer&gt;. But
+     *                                  there are no guarantees what type of object you may read from this list.
+     *         <li>If you need to both read from and write to a list, you need to declare it exactly with no wildcards,
+     *                                  e.g. List&lt;Integer&gt;.
+     *     </ul>
+     * </p>
+     *
      * @throws IOException
      */
     @Test
