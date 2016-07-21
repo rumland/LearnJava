@@ -41,7 +41,7 @@ public class PersonReader {
         System.out.println(person1);
 
         // Here just so you can look at the java documentation for Collections.max
-        System.out.printf("Max of 1 and 2: %s%n", Collections.max(new ArrayList<Integer>(Arrays.asList(1, 2))));
+        System.out.printf("Max of 1 and 2: %s%n", Collections.max(new ArrayList<>(Arrays.asList(1, 2))));
 
         Assert.assertEquals(person, person1);
     }
@@ -71,9 +71,7 @@ public class PersonReader {
      * @throws FileNotFoundException If for whatever reason the constant file location cannot be found...
      */
     public void writePersonTofile(Person person) throws FileNotFoundException {
-        DataOutputStream stream = new DataOutputStream(new FileOutputStream(streamFile));
-
-        try (DataOutputStream output = stream) {
+        try (DataOutputStream output = new DataOutputStream(new FileOutputStream(streamFile))) {
             output.writeUTF(person.getName());
             output.writeInt(person.getAge());
         } catch (IOException e) {
