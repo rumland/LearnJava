@@ -1,4 +1,4 @@
-package com.umland.learnjava.reflection;
+package com.umland.learnjava.generics.reflection;
 
 import java.util.ArrayList;
 import java.util.List;
