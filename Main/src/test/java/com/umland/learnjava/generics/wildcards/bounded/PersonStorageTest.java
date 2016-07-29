@@ -13,7 +13,7 @@ import org.junit.rules.TemporaryFolder;
 /*
 TODO ru: Hopefully one day I understand the language enough to remove the loader.open and loader.close calls that
          are sprinkled throughout the code. Ideally class instantiation would open the resource and it would be
-         closed on destruction. Also need to address the concurent nature of the shared resource between PersonSaver
+         closed on destruction. Also need to address the concurrent nature of the shared resource between PersonSaver
          and PersonLoader. Really should return to this if I can ever remember to...
 */
 
