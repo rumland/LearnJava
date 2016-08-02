@@ -4,6 +4,9 @@
     a. http://blog.pernix-solutions.com/pcastro/2012/08/02/debugging-maven-apps-in-netbeans/
     b. http://forums.netbeans.org/topic42092.html
 
+## References
+1. Javadoc: http://blog.joda.org/2012/11/javadoc-coding-standards.html
+
 ## Synopsis
 
 This project is a set of classes and tests put together to understand the Java language.
