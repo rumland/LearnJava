@@ -8,10 +8,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Main</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>Main</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>../Camera</module>
+        <module>../CameraLibrary</module>
+        <module>../Farm</module>
+        <module>../FarmInterface</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
