@@ -3,6 +3,7 @@
 2. Add "documentation" section talking about how to debug a maven build. Here are links to get started with: 
     a. http://blog.pernix-solutions.com/pcastro/2012/08/02/debugging-maven-apps-in-netbeans/
     b. http://forums.netbeans.org/topic42092.html
+3. Learn how to test a REST endpoint: http://eclipsesource.com/blogs/2011/11/14/introducing-restfuse-a-junit-extension-to-test-rest-apis/ 
 
 ## References
 1. Javadoc: http://blog.joda.org/2012/11/javadoc-coding-standards.html
