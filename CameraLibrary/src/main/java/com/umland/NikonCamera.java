@@ -2,7 +2,10 @@ package com.umland;
 
 public class NikonCamera implements Camera {
     @Override
-    public void takePhoto() {
-        System.out.println("Nikon photo taken.");
+    public String takePhoto() {
+        String message = "Nikon photo taken.";
+        System.out.println(message);
+
+        return message;
     }
 }

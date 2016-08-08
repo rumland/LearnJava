@@ -2,7 +2,10 @@ package com.umland;
 
 public class CanonCamera implements Camera {
     @Override
-    public void takePhoto() {
-        System.out.println("Canon photo taken.");
+    public String takePhoto() {
+        String message = "Canon photo taken.";
+        System.out.println(message);
+
+        return message;
     }
 }

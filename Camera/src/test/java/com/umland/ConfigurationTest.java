@@ -4,24 +4,43 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Random;
 
+@RunWith(Parameterized.class)
 public class ConfigurationTest {
-    Configuration configuration;
+    public Configuration configuration;
+
+    @Parameterized.Parameter
+    public String configName;
+
+    @Parameterized.Parameter(1)
+    public String factoryName;
+
+    @Parameterized.Parameters(name="{index}: config={0}; factory={1}")
+    public static Collection<Object[]> getTestData() {
+        String nikonPath = "src/test/resources/config.nikon.json";
+        String canonPath = "src/test/resources/config.canon.json";
+        return Arrays.asList(new Object[][] {
+                {canonPath, "com.umland.CanonCameraFactory"},
+                {nikonPath, "com.umland.NikonCameraFactory"}
+        });
+    }
 
     @Before
-    public void before() throws IOException, URISyntaxException {
-        File f = new File("src/test/resources/config.json");
-        configuration = Configuration.loadConfiguration(f.toPath());
+    public void beforeTest() throws IOException {
+        configuration = Configuration.loadConfiguration(Paths.get(configName));
     }
 
     @Test
     public void getFactoryType() throws Exception {
-        Assert.assertEquals("com.umland.NikonCameraFactory", configuration.getFactoryType());
+        Assert.assertEquals(factoryName, configuration.getFactoryType());
     }
 
     @Test
