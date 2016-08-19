@@ -38,6 +38,10 @@ import java.net.URLClassLoader;
  * <p>
  * It is correct assuming that the interface is defined in a jar different than the class. This
  * allows someone to load multiple versions of the same class and use the same interface.
+ * <p>
+ * This technique can be used to dynamically load classes in a "hot deployment" fashion. You would want to do this
+ * in an environment that requires the main application never be restarted. You could instead load the various
+ * classes required at runtime.
  */
 public class ClassUrlLoadingTest {
     @Test
