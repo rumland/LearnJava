@@ -1,12 +1,24 @@
 package com.umland.classesusedinexamples;
 
-public class Car {
+public class Car extends Vehicle {
     private int speed;
     private char driveType;
     private final int doors;
+    private final String[] people;
 
-    public Car(int doors) {
+    public Car() {
+        this.doors = 4;
+        this.people = new String[] { "Joe", "Sue" };
+    }
+
+    public Car(final int doors) {
         this.doors = doors;
+        this.people = new String[] { "Joe", "Sue" };
+    }
+
+    public Car(final int doors, final String[] people) {
+        this.doors = doors;
+        this.people = people;
     }
 
     public int drive(char driveType, int desiredSpeed) {

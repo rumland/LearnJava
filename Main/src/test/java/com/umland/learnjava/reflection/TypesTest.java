@@ -3,10 +3,9 @@ package com.umland.learnjava.reflection;
 import com.umland.classesusedinexamples.Car;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runners.Parameterized;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 public class TypesTest {
     /**
@@ -22,9 +21,8 @@ public class TypesTest {
 
     @Test
     public void testTypePassTest() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Class cls = Car.class;
-        //TODO ru: understand unchecked cast problem here.
-        Constructor<?> constructor = cls.getConstructor((Class<?>)int.class);
+        Class<?> cls = Car.class;
+        Constructor constructor = cls.getConstructor(int.class);
         int numberOfDoors = 2;
         Car car = (Car) constructor.newInstance(numberOfDoors);
         Assert.assertEquals(String.format("Expected %s doors.", numberOfDoors), numberOfDoors, car.getDoors());
@@ -44,12 +42,57 @@ public class TypesTest {
         displayMethods(methods);
     }
 
-    //TODO ru: return to looking at types @ 3:58
+    @Test
+    public void getSuperClassTest() {
+        Class<?> cls = Car.class;
+        Class<?> superCls = cls.getSuperclass();
+        while (superCls != null) {
+            System.out.println(superCls.getName());
+            superCls = superCls.getSuperclass();
+        }
+    }
 
+    @Test
+    public void getConstructorsTest() {
+        Class<?> cls = Car.class;
+        Constructor[] constructors = cls.getDeclaredConstructors();
+        for (Constructor constructor : constructors) {
+            System.out.printf("%s(%d - %s)%n", constructor.getName(), constructor.getParameterCount(),
+                    getPrettyParams(constructor.getParameters()));
+        }
+    }
+
+    @Test
+    public void getFieldsTest() {
+        Class<?> cls = Car.class;
+        Field[] fields = cls.getDeclaredFields();
+        for (Field field : fields) {
+            System.out.printf("%s:%s%n", field.getName(), field.getType());
+        }
+    }
+
+    @Test
+    public void getSpecificFieldTest() throws NoSuchFieldException {
+        Class<?> cls = Car.class;
+        Field field = cls.getDeclaredField("people");
+        Class type = field.getType();
+        System.out.printf("type: %s%n", type.getTypeName());
+        System.out.printf("isArray: %b%n", type.isArray());
+    }
 
     private void displayMethods(Method[] methods) {
         for (Method method : methods) {
-            System.out.printf("%s (parameter count: %d)%n", method.getName(), method.getParameterCount());
+            System.out.printf("%s (parameter count: %d) [parameters: %s]%n", method.getName(),
+                    method.getParameterCount(), getPrettyParams(method.getParameters()));
         }
+    }
+
+    private String getPrettyParams(Parameter[] parameters) {
+        String params = "";
+        for (Parameter parameter : parameters) {
+            params += String.format("%s:%s, ", parameter.getName(), parameter.getType());
+        }
+        params = params.isEmpty() ? "N/A" : params.substring(0, params.lastIndexOf(", "));
+        return params;
     }
 }
