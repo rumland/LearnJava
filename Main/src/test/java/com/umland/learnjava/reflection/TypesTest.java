@@ -3,7 +3,6 @@ package com.umland.learnjava.reflection;
 import com.umland.classesusedinexamples.Car;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 
 import java.lang.reflect.*;
 

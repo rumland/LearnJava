@@ -6,11 +6,6 @@ public class Car extends Vehicle {
     private final int doors;
     private final String[] people;
 
-    public Car() {
-        this.doors = 4;
-        this.people = new String[] { "Joe", "Sue" };
-    }
-
     public Car(final int doors) {
         this.doors = doors;
         this.people = new String[] { "Joe", "Sue" };
