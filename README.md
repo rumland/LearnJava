@@ -5,6 +5,7 @@
     b. http://forums.netbeans.org/topic42092.html
 3. Learn how to test a REST endpoint: http://eclipsesource.com/blogs/2011/11/14/introducing-restfuse-a-junit-extension-to-test-rest-apis/ 
 4. Learn how to use JUnit rules to set configurations differently for each test: http://www.codeaffine.com/2012/09/24/junit-rules/
+5. Learn how to do CI work in a Docker environment: https://blog.codeship.com/why-docker/ 
 
 ## References
 1. Javadoc: http://blog.joda.org/2012/11/javadoc-coding-standards.html
