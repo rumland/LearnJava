@@ -11,6 +11,7 @@
     a. https://blogs.oracle.com/xuemingshen/entry/the_zip_filesystem_provider_in1
     b. https://docs.oracle.com/javase/7/docs/api/java/util/zip/package-summary.html
     c. http://fahdshariff.blogspot.com/2011/08/java-7-working-with-zip-files.html
+8. Optional (http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)
 
 ## References
 1. Javadoc: http://blog.joda.org/2012/11/javadoc-coding-standards.html
